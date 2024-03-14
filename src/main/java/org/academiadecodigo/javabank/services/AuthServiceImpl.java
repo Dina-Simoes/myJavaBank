@@ -28,6 +28,7 @@ public class AuthServiceImpl implements AuthService {
         accessingCustomer = customerService.get(id);
         return accessingCustomer != null;
     }
+    
 
     /**
      * @see AuthService#getAccessingCustomer()

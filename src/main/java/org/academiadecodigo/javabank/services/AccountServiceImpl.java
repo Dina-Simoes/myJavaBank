@@ -3,6 +3,7 @@ package org.academiadecodigo.javabank.services;
 import org.academiadecodigo.javabank.model.account.Account;
 import org.academiadecodigo.javabank.model.account.AccountType;
 
+import java.sql.Connection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -60,7 +61,7 @@ public class AccountServiceImpl implements AccountService {
      * @see AccountService#transfer(int, int, double)
      */
     public void transfer(int srcId, int dstId, double amount) {
-
+    Connection Connection;
         Account srcAccount = accountMap.get(srcId);
         Account dstAccount = accountMap.get(dstId);
 
@@ -68,6 +69,8 @@ public class AccountServiceImpl implements AccountService {
         if (srcAccount.canDebit(amount) && dstAccount.canCredit(amount)) {
             srcAccount.debit(amount);
             dstAccount.credit(amount);
+
+
         }
     }
 }
